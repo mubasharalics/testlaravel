@@ -15,6 +15,9 @@
         
     </head>
     <body>
+        <div class="alert alert-success col-md-offset-5 hide" style="position: absolute;">
+  <strong>Success!</strong> Record Saved Successfully
+</div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
             <div class="top-right links">
@@ -44,7 +47,8 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
             <h1 class="text-center">Product Form</h1>
-            <form>
+            <form id="productForm"> 
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <label>Product Name</label>
                 <input type="text" name="p_name" id="p_name" class="form-control"/>
                 <label>Quantity</label>
@@ -54,6 +58,11 @@
                 <a id="saverecord" class="btn btn-primary">Save Record</a>
             </form>    
         </div>
+            <div class="col-md-4 col-md-offset-4 saved_detail">
+                <label>Product Name : <span id="r_p_name"></span></label><a href="javascript:" id="e_p_name" class="pull-right">edit</a><br/>
+                <label>Product Price : <span id="r_p_price"></span></label><a href="javascript:" id="e_p_price" class="pull-right">edit</a><br/>
+                <label>Product Quantity : <span id="r_p_quantity"></span></label><a href="javascript:" id="e_p_stock" class="pull-right">edit</a><br/>
+            </div>
         </div>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"  type="text/javascript" ></script>
         <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>

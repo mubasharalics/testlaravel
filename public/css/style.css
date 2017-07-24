@@ -12,6 +12,10 @@ html, body {
     float: right;
 }
 
+.saved_detail {
+    margin-top: 10px;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;

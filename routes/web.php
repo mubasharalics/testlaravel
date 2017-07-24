@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route for saving product information
+Route::post('/saveProduct', array('as' => 'saveProduct', 'uses' => 'productController@saveProduct'));
