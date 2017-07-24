@@ -5,76 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel Skill Test</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+        
     </head>
     <body>
+        <div class="alert alert-success col-md-offset-5 hide" style="position: absolute;">
+  <strong>Success!</strong> Record Saved Successfully
+</div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
+            <div class="top-right links">
+                @if (Auth::check())
+                <a href="{{ url('/home') }}">Home</a>
+                @else
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+                @endif
+            </div>
             @endif
 
             <div class="content">
@@ -91,5 +44,28 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+            <h1 class="text-center">Product Form</h1>
+            <form id="productForm"> 
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                <label>Product Name</label>
+                <input type="text" name="p_name" id="p_name" class="form-control"/>
+                <label>Quantity</label>
+                <input type="text"  placeholder="Please type only numbers" name="p_quantity" id="p_quantity" class="form-control onlyNumber"/>
+                <label>Price</label>
+                <input type="text" placeholder="Please type only numbers" name="p_price" id="p_price" class="form-control onlyNumber"/>
+                <a id="saverecord" class="btn btn-primary">Save Record</a>
+            </form>    
+        </div>
+            <div class="col-md-4 col-md-offset-4 saved_detail">
+                <label>Product Name : <span id="r_p_name"></span></label><a href="javascript:" id="e_p_name" class="pull-right">edit</a><br/>
+                <label>Product Price : <span id="r_p_price"></span></label><a href="javascript:" id="e_p_price" class="pull-right">edit</a><br/>
+                <label>Product Quantity : <span id="r_p_quantity"></span></label><a href="javascript:" id="e_p_stock" class="pull-right">edit</a><br/>
+            </div>
+        </div>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"  type="text/javascript" ></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
     </body>
 </html>
