@@ -41,11 +41,22 @@
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <h1>Product Form</h1>
-            
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+            <h1 class="text-center">Product Form</h1>
+            <form>
+                <label>Product Name</label>
+                <input type="text" name="p_name" id="p_name" class="form-control"/>
+                <label>Quantity</label>
+                <input type="text"  placeholder="Please type only numbers" name="p_quantity" id="p_quantity" class="form-control onlyNumber"/>
+                <label>Price</label>
+                <input type="text" placeholder="Please type only numbers" name="p_price" id="p_price" class="form-control onlyNumber"/>
+                <a id="saverecord" class="btn btn-primary">Save Record</a>
+            </form>    
+        </div>
         </div>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"  type="text/javascript" ></script>
         <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
     </body>
 </html>

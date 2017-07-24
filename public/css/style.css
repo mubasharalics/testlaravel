@@ -7,6 +7,11 @@ html, body {
     margin: 0;
 }
 
+#saverecord {
+    margin-top: 10px;
+    float: right;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;
